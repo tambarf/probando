@@ -1,0 +1,768 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2707
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Oblique;
+\f3\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red191\green100\blue38;\red153\green168\blue186;
+\red88\green118\blue71;\red109\green109\blue109;\red86\green132\blue173;\red254\green187\blue91;\red133\green96\blue154;
+\red191\green100\blue38;\red153\green168\blue186;\red109\green109\blue109;\red86\green132\blue173;\red88\green118\blue71;
+\red133\green96\blue154;\red254\green187\blue91;}
+{\*\expandedcolortbl;;\csgray\c100000;\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c60000\c65882\c72941;
+\csgenericrgb\c34510\c46275\c27843;\csgenericrgb\c42745\c42745\c42745;\csgenericrgb\c33725\c51765\c67843;\csgenericrgb\c99608\c73333\c35686;\csgenericrgb\c52157\c37647\c60392;
+\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c42745\c42745\c42745;\csgenericrgb\c33725\c51765\c67843;\csgenericrgb\c34510\c46275\c27843;
+\csgenericrgb\c52157\c37647\c60392;\csgenericrgb\c99608\c73333\c35686;}
+{\info
+{\keywords cursorLocation=7, fitsPagesWidth=1}}\paperw11900\paperh16840\margl1008\margr1008\margt1008\vieww14960\viewh16820\viewkind1\viewscale125
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0\fs48 \cf0 \cb2 KOTLIN
+\fs26 \
+\ul INTRODUCCI\'d3N A KOTLIN\ulnone \
+Los valores no se pueden cambiar (por ejemplo, un DNI), y las variables s\'ed. \
+Las constantes no son aplicables a una variable local. Se tienen que crear fuera del onCreate, ya que sino se declaran como parte del proceso de creaci\'f3n de la ventana.\
+Tipos de datos:\
+- val: no se reasigna.\
+- var: s\'ed puede cambiar su contenido.\
+- const: tampoco se reasigna, sin embargo la declaraci\'f3n tiene que hacerse as\'ed:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 companion object \cf4 \{\
+    \cf3 const val \cf4 moneda = \cf5 "EUR"\
+\cf4 \}\
+\
+\cf3 val \cf4 fecha = \cf5 "05/06/1990"\
+\cf6 //           0123456789\
+\
+\cf3 var \cf4 mes = fecha.subSequence(\cf7 3\cf3 ,\cf7 5\cf4 ).toString().
+\f2\i \cf8 toInt
+\f1\i0 \cf4 ()\
+\cf3 when \cf4 (mes) \{\
+    \cf7 1\cf3 , \cf7 2\cf3 , \cf7 3 \cf4 -> 
+\f2\i println
+\f1\i0 (\cf5 "hola"\cf4 )\
+    \cf7 4\cf3 , \cf7 5\cf3 , \cf7 6 \cf4 -> 
+\f2\i println
+\f1\i0 (\cf5 "adios"\cf4 )\
+    \cf3 else \cf4 -> 
+\f2\i println
+\f1\i0 (\cf5 "todo mal"\cf4 )\
+\}\
+\
+\cf3 var \cf4 pin: Int = \cf7 1234 \cf4 $
+\f3\b \{
+\f1\b0 pin++
+\f3\b \}\
+\
+
+\f1\b0 \cf3 fun \cf8 ingresar \cf4 (cantidad: Float) \{...\}\
+\
+\cf3 fun \cf8 retirarCantidad \cf4 (cantidad: Float) : Boolean \{\
+    \cf3 if \cf4 (cantidad > saldo) \cf3 return false\
+    else return true\
+\cf4 \}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+\
+25. ARRAYS O ARREGLOS\
+Array: es un conjunto de datos manejados desde el mismo nombre.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 recibos : Array<String> = 
+\f2\i arrayOf 
+\f1\i0 (\cf5 "luz"\cf3 , \cf5 "agua"\cf3 , \cf5 "gas"\cf4 )\
+recibos.set (\cf7 2\cf3 , \cf5 "internet"\cf4 ) \cf6 //cambiar el valor\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 26. MATRICES\
+Matriz: conjunto de arrays.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 matriz = 
+\f2\i arrayOf 
+\f1\i0 (\
+    
+\f2\i intArrayOf
+\f1\i0 (\cf7 1\cf3 ,\cf7 2\cf3 ,\cf7 3\cf4 )\cf3 ,      \cf6 //Primero especificamos el \'edndice de la matriz\
+    
+\f2\i \cf4 intArrayOf
+\f1\i0 (\cf7 4\cf3 ,\cf7 5\cf3 ,\cf7 6\cf3 ,\cf7 7\cf3 ,\cf7 8\cf4 )\cf3 ,  \cf6 //y luego el \'edndice interno\
+    
+\f2\i \cf4 intArrayOf
+\f1\i0 (\cf7 9\cf3 ,\cf7 10\cf4 )\
+    )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+27. BUCLES FOR\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 fun \cf8 recorrerArray \cf4 (array: Array<String>)\{\
+    \cf3 for \cf4 (i \cf3 in \cf4 array) \cf6 //recorremos cada elemento\
+    \cf3 for \cf4 (i \cf3 in \cf4 array.
+\f2\i \cf9 indices
+\f1\i0 \cf4 )  
+\f2\i println 
+\f1\i0 (array.get(i)) \cf6 //recorremos \'edndice por \'edndice. la i es un n\'famero\
+    \cf3 for \cf4 (i \cf3 in \cf7 0\cf4 ..array.\cf9 size\cf4 -\cf7 1\cf4 ) 
+\f2\i println 
+\f1\i0 (\cf5 "\cf3 $\{\cf4 i+\cf7 1\cf3 \}\cf5 : \cf3 $\{\cf4 array.get(i)\cf3 \}\cf5 "\cf4 ) \cf6 // damos un rango num\'e9rico\
+\cf4 \}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+28. BUCLES FOR ANINDADOS (RECORRER MATRICES)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 for \cf4 (i \cf3 in \cf4 (\cf7 0 
+\f2\i \cf8 until 
+\f1\i0 \cf4 matriz.\cf9 size\cf4 )) \{\
+    
+\f2\i println 
+\f1\i0 ()\
+    \cf3 for \cf4 (j \cf3 in \cf4 (\cf7 0 
+\f2\i \cf8 until 
+\f1\i0 \cf4 matriz[i].\cf9 size\cf4 ))\
+        
+\f2\i println
+\f1\i0 (\cf5 "Posici\'f3n [\cf3 $\cf4 i\cf5 ] [\cf3 $\cf4 j\cf5 ]: \cf3 $\{\cf4 matriz[i][j]\cf3 \}\cf5 "\cf4 )\
+\}\
+\cf6 //i nos indica el n\'famero del array\
+//j nos indica el elemento dentro de ese array\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+29 - 33. COLECCIONES\
+Las colecciones son conjuntos de datos.\
+- set: conjunto de datos.\
+- listas: colecci\'f3n de elementos con orden espec\'edfico.\
+- mapas.\
+Pueden ser mutables e inmutables (flexibles y fijas).\
+SET\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf9 clientesVIP\cf4 : Set<Int> = 
+\f2\i setOf
+\f1\i0 (\cf7 1\cf3 ,\cf7 2\cf3 ,\cf7 3\cf4 )\
+\cf3 var \cf9 setMezclado \cf4 = 
+\f2\i setOf 
+\f1\i0 (\cf7 2\cf3 , \cf5 "cosa"\cf3 , \cf5 'c'\cf4 )\
+\cf6 //se puede mezclar si no se especifica el tipo\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+MUTABLESET\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 clientes: MutableSet<Int> = mutableSetOf(\cf7 1\cf3 ,\cf7 2\cf3 ,\cf7 3\cf3 ,\cf7 4\cf4 )\
+clientes.add(\cf7 5\cf4 )\
+clientes.remove(\cf7 4\cf4 )\
+clientes.clear()\
+clientes.size\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+LISTAS\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf9 divisas\cf4 : List<String> = 
+\f2\i listOf
+\f1\i0 (\cf5 "USD"\cf3 , \cf5 "EUR"\cf4 )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+MUTABLELIST\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf9 bolsa\cf4 : MutableList<String> = 
+\f2\i mutableListOf
+\f1\i0 (\cf5 "Adidas"\cf3 , \cf5 "Amazon"\cf4 )\
+bolsa.add(\cf5 "Adobe"\cf4 )\
+bolsa.removeAt(\cf7 2\cf4 ) \cf6 //Remueve \'edndice\
+\cf4 bolsa.elementAt(\cf7 2\cf4 ) \cf6 //Aceder al elemento\
+\cf4 bolsa.none() \cf6 //Boolean que dice si est\'e1 vac\'eda\
+\cf4 bolsa.firstOrNull()\cf6 //Devuelve el primero. Si no hay nada devuelve null\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+MAPAS O DICCIONARIOS\
+Clave-valor\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 mapa: Map<Int\cf3 , \cf4 String> = 
+\f2\i mapOf
+\f1\i0 (\cf7 1 
+\f2\i \cf8 to 
+\f1\i0 \cf5 "Espa\'f1a"\cf3 , \
+                                   \cf7 2 
+\f2\i \cf8 to 
+\f1\i0 \cf5 "M\'e9xico"\cf4 )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0  \
+MUTABLEMAPS\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 inversiones = 
+\f2\i mutableMapOf
+\f1\i0 <String\cf3 , \cf4 Float>()\
+inversiones.put(\cf5 "Amaazon"\cf3 , \cf7 50f\cf4 )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+\
+\
+\
+\
+\
+\
+\
+\ul PROGRAMACI\'d3N ORIENTADA A OBJETOS\ulnone \
+Un objeto es un tipo de dato creado por ti, con la medida y forma que se quiera. Los objetos permiten decidir estructuras de datos seg\'fan tu conveniencia. Tienen 2 caracter\'edsticas:\
+- atributos: informaci\'f3n del objeto.\
+- m\'e9todos: son aquellas funcionalidades que se pueden hacer con los atributos: acciones utilizando la informaci\'f3n del objeto.\
+Abstracci\'f3n: transformar los objetos en c\'f3digo.\
+\
+41. CONSTRUCTORES\
+Cuando un objeto es creado se construye esa construcci\'f3n. Podemos hacer que en el momento de construirse ya tenga ciertos valores. Para ello, en la clase, a\'f1adimos par\'e9ntesis y \'e9ste ser\'e1 el constructor. Dentro de los par\'e9ntesis definimos los atributos que queremos que tenga ese objeto por defecto.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 class \cf4 Person (\cf3 var \cf9 name\cf4 : String = \cf5 "Anonimo"\cf3 , var \cf9 passport\cf4 : String? = \cf3 null, var \cf9 height\cf4 :Float = \cf7 1.6f\cf4 ):\
+\cf6 //String? -> Significa String o nulo\
+//Si no le pasamos ning\'fan atributo toma \'93An\'f3nimo\'94 como valor\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+Los atributos pertenecientes a este objeto pueden ser reverenciados con la palabra this. Es una buena pr\'e1ctica utilizar esto porque nos evita errores como que existan por otros lados otras variables con estos nombres.\
+El compilador siempre va a hacer referencia a la variable de \'e1mbito m\'e1s cercano que tenga, pero si se le a\'f1ade la palabra this no hay que llevar la cuenta de a qu\'e9 variable estar\'e1 el compilador haciendo referencia.\
+\
+42. ENCAPSULAMIENTO\
+Privatizaci\'f3n de los datos. Escribimos private delante de cada variable. Para poder acceder a ellas usamos los m\'e9todos Get y Set.\
+\
+45. HERENCIA\
+La herencia permite tener objetos que consignan atributos y m\'e9todos de otras clases padre, m\'e1s los suyos propios.\
+Es muy importante hacer la abstracci\'f3n lo m\'e1s gen\'e9rica posible para no heredar datos que no vienen a cuento, as\'ed hereda s\'f3lo lo que tiene que heredar.\
+Creamos la nueva clase con todos sus atributos y se ponen dos puntos despu\'e9s del constructor y se tiene que decir la clase de la que va a heredar, con el constructor. La clase padre tiene que tener sus atributos, PERO la clase padre tiene que ser abierta.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 open class \cf4 Person (\cf3 var \cf4 name: String = \cf5 "Anonimo"\cf3 , var \cf4 passport: String? = \cf3 null, var \cf4 height:Float = \cf7 1.6f\cf4 ): thanks() \{\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 class \cf4 Athlete(name:String\cf3 , \cf4 passport: String?\cf3 , var \cf9 sport\cf4 : String): Person (name\cf3 , \cf4 passport)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+\cf0 Cuando es un final quiere decir que \'e9se es el \'faltimo eslab\'f3n de la cadena. Para poder heredar de ah\'ed hay que abrirlo. Se pone el open y ya no es el \'faltimo.\
+\
+47. PUBLIC, PROTECTED, PRIVATE E INTERNAL\
+- Public: cualquiera puede acceder.\
+- Private: indica una caracter\'edstica que va a tener un objeto de una clase que no la va a poder heredar nadie, es privada de el.\
+- Protected: es un dato que no est\'e1 p\'fablico, que est\'e1 protegido, pero s\'ed permite que se herede.\
+- Internal: permite usas esas caracter\'edsticas con esa palabra.\
+Esto pasa con las funciones get y set, que son funciones que por tener esa palabra se reconocen como especiales, ya que son las que implementan el encapsulamiento.\
+\
+49 - 52. POLIFORMISMO, OVERRIDE Y SUPER\
+Son diferentes formas de un mismo m\'e9todo. \
+Que el hijo1 herede y lo haga de una forma y el hijo2 tambi\'e9n herede y lo haga de otra forma distinta.\
+Para ello se usa \'93override\'94 (sobreescribir) en la nueva funci\'f3n.\
+Si queremos que se haga la acci\'f3n del padre y del hijo (no sobreescribir, sino que se a\'f1adan cosas y se hagan las 2), hacemos la llamada a la funci\'f3n superior que la hereda (super).\
+\
+\
+53. CLASES ABSTRACTAS\
+Poner s\'f3lo lo b\'e1sico para que al heredar no haya ning\'fan problema. Ej: clase veh\'edculo. No se le pone ruedas porque si lo hereda un barco, el barco no tiene ruedas. \
+Hay que poner abstract delante de la clase, y desde ah\'ed ya se puede heredar. No hay que \'93abrir el eslab\'f3n\'94 con open, porque las clases abstractas, por defecto, se acepta que de ah\'ed se herede, porque est\'e1n hechas para eso. \
+De una clase abstracta no se crean objetos. Esto existe no para crear objetos, existe porque los atributos o los m\'e9todos que le metamos a esa clase abstracta los vamos a tener que utilizar para un conjunto de clases que los van a usar.\
+\
+54. INTERFACES\
+Con las interfaces podemos simular la herencia m\'faltiple, con la caracter\'edstica de que el interface no tiene un constructor, por lo tanto los datos tienen que manejarse desde la clase que herede. No se puede heredar de 2 clases, pero s\'ed de una clase y todas las interfaces que se necesiten.\
+\
+55. COLABORACI\'d3N ENTRE CLASES\
+Que una clase se valga de otras para su propia esencia. El hecho de tener un objeto de otra clase declarado dentro de una clase es la colaboraci\'f3n entre clases.\
+\
+56. SUBCLASES\
+Son clases declaradas dentro de clases. Unas acceden a la clase contenedora, otras no. Una tiene que ser invocada haciendo referencia a la clase contenedora con un punto y la otra, por el hecho de acceder a la clase que le contiene, necesita que se cree, por esto hay que invocar al constructor de la clase que le contiene.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 class \cf4 SubClases \{\
+    \cf3 private var \cf9 name \cf4 = \cf5 "Padre"\
+    \cf3 fun \cf8 presentar\cf4 (): String \{ \cf3 return this\cf4 .\cf9 name \cf4 \}\
+\
+    \cf3 class \cf4 Anidada\{\
+        \cf3 private val \cf9 nameAnidada \cf4 = \cf5 "Anidada"\
+        \cf3 fun \cf8 presentar\cf4 (): String \{ \cf3 return this\cf4 .\cf9 nameAnidada \cf4 \}\
+    \}\
+\
+    \cf3 inner class \cf4 Interna \{\
+        \cf3 private val \cf9 nameInterna \cf4 = \cf5 "Interna"\
+        \cf3 fun \cf8 presentar\cf4 (): String \{ \cf3 return \cf5 "Hola, soy \cf3 $\{this\cf4 .\cf9 nameInterna\cf3 \}\cf5  hija de \cf3 $\{\cf9 name\cf3 \}\cf5 " \cf4 \}\
+    \}\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 sc = SubClases()\
+
+\f2\i println
+\f1\i0 (sc.presentar()) //Padre\
+\
+\cf6 /*\
+Esta variable ha sido creada de forma independiente al padre, se ha creado un objeto de la clase Anidada, no se ha construido el padre\
+se accede a esta clase referenci\'e1ndola por la clase que la contiene y un punto\
+ */\
+\cf3 var \cf4 ani = SubClases.Anidada()\
+
+\f2\i println
+\f1\i0 (ani.presentar()) //Anidada\
+\
+\cf6 /*\
+Se est\'e1 intentando construir una clase interna, pero para poder tener acceso al padre, se necesita que el "padre" se cree\
+para ello hay que llamar al constructor\
+ */\
+\cf3 var \cf4 inn = SubClases().Interna()\
+
+\f2\i println
+\f1\i0 (inn.presentar()) //Hol, soy Interna, hija de Padre\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+57. OBJETOS AN\'d3NIMOS\
+Son aquellos que no est\'e1n declarados sus clases. Se crean en el momento y no se declara su clase.\
+\
+58. DATA CLASS\
+Conjuntos de datos que facilitan mucho el acceso y la comunicaci\'f3n con la base de datos. Se manejan desde una clase, pero para los cuales no hay funcionalidades, simplemente es atributos sin m\'e9todos. \
+En el constructor es obligatorio declarar si es var o val.\
+La filosof\'eda del Data Class es ser un conjunto de datos y ya. No da error si se le implementan m\'e9todos, pero no es su objetivo. El compilador lo permite pero se sale de la filosof\'eda del Data Class.\
+\
+59. ENUM CLASS\
+Admite funciones, m\'e9todos y atributos, pero los atributos tienen que ser constantes.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1 \cf3 var \cf4 hoy: dias = dias.
+\f2\i \cf9 LUNES 
+\f1\i0 \cf6 //Se inicializa con lunes, no puede tener otro valor\
+\cf3 var \cf4 semana = dias.values() \cf6 //array con todas las constantes declaradas\
+\cf3 for \cf4 (i \cf3 in \cf4 semana) 
+\f2\i println
+\f1\i0 (i)\
+
+\f2\i println
+\f1\i0 (dias.valueOf(\cf5 "MIERCOLES"\cf4 )) \cf6 //posicion de miercoles\
+
+\f2\i \cf4 println
+\f1\i0 (hoy.\cf9 name\cf4 ) \cf6 //nombre con la informaci\'f3n que guarda\
+
+\f2\i \cf4 println
+\f1\i0 (hoy.\cf9 ordinal\cf4 ) \cf6 //la posici\'f3n dentro de esa secuencia de datos\
+
+\f2\i \cf4 println
+\f1\i0 (hoy.saludo())\
+
+\f2\i println
+\f1\i0 (hoy.\cf9 laboral\cf4 )\
+
+\f2\i println
+\f1\i0 (hoy.\cf9 jornada\cf4 )\
+hoy = dias.
+\f2\i \cf9 DOMINGO 
+\f1\i0 \cf6 //se le pueden cambiar los datos, hoy es una variable, pero lo que es constante es el dato que estamos pasando.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+\ul KOTLIN AVANZADO\ulnone \
+62. FUNCIONES DE EXTENSI\'d3N\
+Permiten a\'f1adir m\'e9todos a objetos que existen sin tener que heredar ni de otra clase ni de una interfaz.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf3 var \cf4 usuario = \cf5 "    soy   yo   "\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "\cf3 $\{\cf4 usuario\cf3 \}\cf5  (\cf3 $\{\cf4 usuario.\cf9 length\cf3 \}\cf5 ) - \cf3 $\{\cf4 usuario.
+\f2\i \cf8 noSpaces
+\f1\i0 \cf4 ()\cf3 \}\cf5  (\cf3 $\{\cf4 usuario.
+\f2\i \cf8 noSpaces
+\f1\i0 \cf4 ().\cf9 length\cf3 \}\cf5 )"\cf4 )\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 var \cf4 array1: Array<Int> = 
+\f2\i arrayOf
+\f1\i0 (\cf7 5\cf3 , \cf7 4\cf3 , \cf7 3\cf3 , \cf7 2\cf3 , \cf7 1\cf4 )\
+\cf3 var \cf4 array2 = IntArray(\cf7 3\cf4 )\
+array2[\cf7 0\cf4 ] = \cf7 10\
+\cf4 array2[\cf7 1\cf4 ] = \cf7 20\
+\cf4 array2[\cf7 2\cf4 ] = \cf7 30\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "Array2: "\cf4 )\cf3 ; \cf4 array2.
+\f2\i \cf8 show
+\f1\i0 \cf4 ()\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 var \cf4 array3: IntArray = 
+\f2\i intArrayOf
+\f1\i0 (\cf7 1\cf3 , \cf7 2\cf3 , \cf7 3\cf3 , \cf7 4\cf3 , \cf7 5\cf4 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "Array3: "\cf4 )\cf3 ; \cf4 array3.
+\f2\i \cf8 show
+\f1\i0 \cf4 ()\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+63. FUNCIONES DE ORDEN SUPERIOR\
+Son indirectamente muy utilizadas en diferentes partes del c\'f3digo o de cualquier manejo de situaci\'f3n que vamos a ver. Ligadas a estas est\'e1n las lambda. Se pueden utilizar tambi\'e9n en objetos. Podemos cambiar las funciones de orden superior con las funciones de extensi\'f3n, pero no es lo aconsejable. Si es de orden superior recibe una funci\'f3n como par\'e1metro.\
+Una funci\'f3n de orden superior es una funci\'f3n que puede recibir como argumento una o m\'e1s funciones y/o retornar una funci\'f3n como resultado.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "La suma de 80 y 20 es \cf3 $\{\cf4 calculadora(\cf7 80\cf3 , \cf7 20\cf3 , \cf4 ::suma)\cf3 \}\cf5 "\cf4 )\
+
+\f2\i println
+\f1\i0 (\cf5 "La resta de 50 y 10 es \cf3 $\{\cf4 calculadora(\cf7 50\cf3 , \cf7 10\cf3 , \cf4 ::resta)\cf3 \}\cf5 "\cf4 )\
+
+\f2\i println
+\f1\i0 (\cf5 "El producto de 7 por 7 es \cf3 $\{\cf4 calculadora(\cf7 7\cf3 , \cf7 7\cf3 , \cf4 ::multiplica)\cf3 \}\cf5 "\cf4 )\
+
+\f2\i println
+\f1\i0 (\cf5 "La divisi\'f3n entre 12 y 3 es \cf3 $\{\cf4 calculadora(\cf7 12\cf3 , \cf7 3\cf3 , \cf4 ::divide)\cf3 \}\cf5 "\cf4 )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \
+65. LAMBDAS\
+En una variable podemos guardar una funci\'f3n. Es muy valioso, porque las variables pueden cambiar su contenido. Esta funci\'f3n puede cambiar un bloque de c\'f3digo, se puede puede tener uno diferente, se pueden manipular bloques de c\'f3digo bajo el mismo nombre. \
+Las lambdas son esas funciones que mandamos a una funci\'f3n de orden superior, pero que no est\'e1n guardadas en ninguna variable, que son an\'f3nimas.\
+Su funci\'f3n es la de poder declarar c\'f3digo circunstancial que convenga, sin necesidad de tener almacenado en ning\'fan lado, ni declararlo, ni nada. Simplemente se indica bajo la estructura de par\'e1metros, flecha, cuerpo con un valor. Aqu\'ed no hay un return, es directamente un valor.\
+Las lambdas se pueden poner fuera de ().\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf6 //Por un lado par\'e1metros, la flechita y un valor\
+\cf3 var \cf4 funcion = 
+\f3\b \{ 
+\f1\b0 x: Int\cf3 , \cf4 y: Int 
+\f3\b -> 
+\f1\b0 x+y
+\f3\b \}\
+
+\f1\b0 \cf6 //Es la funci\'f3n suma y la estamos guardando en una variable\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "La suma de 80 y 20 con variable es \cf3 $\{\cf4 calculadora(\cf7 80\cf3 , \cf7 20\cf3 , \cf4 funcion)\cf3 \}\cf5 "\cf4 )\
+\cf6 //no se ponen los : para referenciar la variable porque esos se ponen para referenciar funciones que est\'e1n fuera del onCreate\
+\
+//renombramos la variable funcion y hacemos que sea una resta\
+\cf4 funcion = 
+\f3\b \{ 
+\f1\b0 x: Int\cf3 , \cf4 y: Int 
+\f3\b -> 
+\f1\b0 x-y
+\f3\b \}\
+
+\f2\i\b0 println
+\f1\i0 (\cf5 "La resta de 50 y 10 con variables es \cf3 $\{\cf4 calculadora(\cf7 50\cf3 , \cf7 10\cf3 , \cf4 funcion)\cf3 \}\cf5 "\cf4 )\
+\cf6 //Las lambdas son esas funciones que mandamos a una funci\'f3n de orden superior, pero que no est\'e1n guardadas en ninguna variable, que son an\'f3nimas\
+//vamos a hacer lo mismo pero con lambdas\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "La suma de 80 y 20 con lambda es \cf3 $\{\cf4 calculadora(\cf7 80\cf3 , \cf7 20\cf3 , 
+\f3\b \cf4 \{ 
+\f1\b0 x: Int\cf3 , \cf4 y: Int 
+\f3\b -> 
+\f1\b0 x+y
+\f3\b \}
+\f1\b0 )\cf3 \}\cf5 "\cf4 )\
+
+\f2\i println
+\f1\i0 (\cf5 "La resta de 50 y 10 con lambda es \cf3 $\{\cf4 calculadora(\cf7 50\cf3 , \cf7 10\cf3 , 
+\f3\b \cf4 \{ 
+\f1\b0 x: Int\cf3 , \cf4 y: Int 
+\f3\b -> 
+\f1\b0 x-y
+\f3\b \}
+\f1\b0 )\cf3 \}\cf5 "\cf4 )\
+\cf6 //Aqu\'ed el c\'f3digo est\'e1 escrito directamente de manera an\'f3nima, no est\'e1 guardado en ninguna variable, ni tampoco declarado en ning\'fan lado,\
+//como las funciones suma, resta... que tienen que ser referenciadas con los :,\
+//o como checkpoliceinspain, que tambi\'e9n est\'e1n declaradas y tienen que ser invocadas\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "La potencia de 2 elevado a 5 con lambda es \cf3 $\{\cf4 calculadora(\cf7 2\cf3 , \cf7 5\cf4 ) \
+
+\f3\b \{ 
+\f1\b0 x\cf3 , \cf4 y 
+\f3\b -> 
+\f1\b0 \cf6 //cabecera y flecha\
+    \cf3 var \cf4 valor = \cf7 1 \cf6 //cuerpo\
+    \cf3 for \cf4 (i \cf3 in \cf7 1\cf4 ..y) valor *= x \cf6 //cuerpo\
+    \cf4 valor \cf6 //es la \'faltima l\'ednea, lo importante es que aqu\'ed haya un valor. \
+
+\f3\b \cf4 \} 
+\f1\b0 \cf3 \}\cf5 "\cf4 )\
+\
+\cf3 var \cf4 array4 = IntArray(\cf7 10\cf4 ) 
+\f3\b \{
+\f1\b0 \cf7 5
+\f3\b \cf4 \}\
+
+\f1\b0 \cf6 //var array4 = IntArray(10, \{5\})  Tambi\'e9n se puede poner as\'ed, porque IntArray es una funci\'f3n de orden superior que recibe un par\'e1metro donde se indica\
+// el tama\'f1o del array y otro par\'e1metro que es una funci\'f3n donde se le puede indicar qu\'e9 valores quiero meterle a ese array en cada posici\'f3n\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "Array4: "\cf4 )\cf3 ; \cf4 array4.
+\f2\i \cf8 show
+\f1\i0 \cf4 ()\
+\
+\cf3 var \cf4 array5 = IntArray(\cf7 10\cf4 )
+\f3\b \{it\}\
+
+\f1\b0 \cf6 //it es el iterador, en el que cada posici\'f3n va a recorrer el array, no es el par\'e1metro que tiene esta lambda. Si escribimos it est\'e1 haciendo referencia a \'e9l,\
+// de manera que igual que se pone 5, ahora cada elemento va a tener el n\'famero del \'edndice (pos 0 num 0)\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "Array5: "\cf4 )\cf3 ; \cf4 array5.
+\f2\i \cf8 show
+\f1\i0 \cf4 ()\
+\
+\cf3 var \cf4 array6 = IntArray(\cf7 10\cf4 )
+\f3\b \{it
+\f1\b0 *\cf7 2
+\f3\b \cf4 \}\
+
+\f1\b0 \cf6 //Igual que antes, pero con este sacamos n\'famero pares\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "Array6: "\cf4 )\cf3 ; \cf4 array6.
+\f2\i \cf8 show
+\f1\i0 \cf4 ()\
+\cf3 var \cf4 array7 = IntArray(\cf7 10\cf4 )
+\f3\b \{
+\f1\b0 i 
+\f3\b -> 
+\f1\b0 i*\cf7 3
+\f3\b \cf4 \}\
+
+\f1\b0 \cf6 //Renombramos el par\'e1metro de entrada que tiene la lambda (it) y la llamamos i. Ahora multiplicamos por 3 en vez de por 2, y nos salen de 3 en 3\
+
+\f2\i \cf4 println
+\f1\i0 (\cf5 "Array7: "\cf4 )\cf3 ; \cf4 array7.
+\f2\i \cf8 show
+\f1\i0 \cf4 ()\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 68. TYPEALIAS\
+Un alias es un sobrenombre que podemos ponerle a objetos, funciones, variables\'85 elementos que queremos renombrar de manera que sea m\'e1s f\'e1cil de entender. Los typealias tienen que ser declarados fuera del MainActivity.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf10 \cb2 typealias \cf11 aliasObjeto = SubClases.Anidada\
+\cf10 var \cf11 anidada = aliasObjeto()\
+println(anidada.presentar())
+\f0 \cf0 \cb2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf12 \cb2 //typealias de datos\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 typealias \cf11 aliasDato = MutableMap<Int\cf10 , \cf11 ArrayList<String>>\
+\cf10 var \cf11 saludos: aliasDato = 
+\f2\i mutableMapOf
+\f1\i0 ()\
+saludos[\cf13 0\cf11 ] = 
+\f2\i arrayListOf
+\f1\i0 (\cf14 "Hola"\cf10 , \cf14 "Adios"\cf11 )\
+saludos[\cf13 1\cf11 ] = 
+\f2\i arrayListOf
+\f1\i0 (\cf14 "Hello"\cf10 , \cf14 "Bye"\cf11 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf12 //typealias de funciones\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 typealias  \cf11 aliasFuncion = (a: Int\cf10 , \cf11 b: Int) -> Int\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \cb2 \
+69. DESTRUCTURACION\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf10 \cb2 var \cf11 (name_star2\cf10 , \cf11 radius_star2\cf10 , \cf11 galaxy2) = star(\cf14 "Sol2"\cf10 , \cf13 696340f\cf10 , \cf14 "V\'eda L\'e1ctea2"\cf11 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf11 println 
+\f1\i0 (\cf14 "Datos Star2 Desestructurada: \cf10 $\cf11 name_star2\cf14 , \cf10 $\cf11 radius_star2\cf14 , \cf10 $\cf11 galaxy2\cf14 "\cf11 )\
+\cf12 //Si no queremos recoger el \'faltimo dato es tan sencillo como no ponerlo\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 var \cf11 (name_star3\cf10 , \cf11 radius_star3) = star(\cf14 "Sol3"\cf10 , \cf13 696340f\cf10 , \cf14 "V\'eda L\'e1ctea3"\cf11 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf11 println 
+\f1\i0 (\cf14 "Datos Star3 Desestructurada: \cf10 $\cf11 name_star3\cf14 , \cf10 $\cf11 radius_star3\cf14 "\cf11 )\
+\cf12 //Si no queremos recoger datos intermedios, los suplimos con una barra baja, una por dato que queremos saltar\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 var \cf11 (name_star4\cf10 , \cf11 _\cf10 , \cf11 galaxy4) = star(\cf14 "Sol4"\cf10 , \cf13 696340f\cf10 , \cf14 "V\'eda L\'e1ctea4"\cf11 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf11 println 
+\f1\i0 (\cf14 "Datos Star4 Desestructurada: \cf10 $\cf11 name_star4\cf14 , \cf10 $\cf11 galaxy4\cf14 "\cf11 )\
+\cf12 //Tambi\'e9n se puede hacer con componentes\
+//con esto guardamos todos los datos en la variable e invocampos al componente del campo que se quiera\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 var \cf11 componente = star(\cf14 "Sol5"\cf10 , \cf13 696340f\cf10 , \cf14 "V\'eda L\'e1ctea5"\cf11 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf11 println 
+\f1\i0 (\cf14 "Datos Star5 con componentes: \cf10 $\{\cf11 componente.component1()\cf10 \}\cf14 , \cf10 $\{\cf11 componente.component2()\cf10 \}\cf14 , \cf10 $\{\cf11 componente.component3()\cf10 \}\cf14 "\cf11 )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \cb2 \
+70 - 71. TRY CATCH FINNALLY\
+Errores m\'e1s comunes:\
+1. NullPointerException: apuntar a un objeto null. Se ejecuta cuando se invoca una propiedad o m\'e9todo de algo nulo, un objeto nulo.\
+2. ArithmeticException: excepci\'f3n aritm\'e9tica, como dividir entre cero.\
+3. SecurityException: se lanza cuando existe una violaci\'f3n de seguridad.\
+4. ArrayIndexOutOfBoundException: cuando se intenta acceder a un \'edndice de un array que no existe.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf10 \cb2 try\cf11 \{\
+    
+\f2\i println
+\f1\i0 (\cf14 "Division 5/0: \cf10 $\{\cf13 5\cf11 /\cf13 0\cf10 \}\cf14 "\cf11 )\
+\} \cf10 catch \cf11 (e: Exception) \{\
+    
+\f2\i println
+\f1\i0 (\cf14 "Vamos a manejar este error"\cf11 )\
+\} \cf10 finally \cf11 \{\
+    println(\cf14 "Este c\'f3digo se ejecuta siempreeeee"\cf11 )\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \cb2 Este error lo podemos guardar dentro de una variable.\
+\
+72. THROW EXCEPTIONS\
+Al lanzar el throw se detiene la aplicaci\'f3n. Sirve para rastrear errores dentro de la aplicaci\'f3n, pero hay que evitarlos siempre y encerrarlos dentro de un try-catch.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf12 \cb2 /*\
+THROW\
+ */\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 var \cf11 password: String = \cf14 "1234"\
+\cf10 if \cf11 (password.\cf15 length \cf11 < \cf13 6\cf11 )\{\
+    \cf10 throw \cf11 Exception (\cf14 "Password muy corta"\cf11 )\
+\}\
+\cf10 else 
+\f2\i \cf11 println
+\f1\i0 (\cf14 "Password segura"\cf11 )\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \cb2 \
+73. SCOPE FUNCTIONS\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf12 \cb2 //se ve m\'e1s estructurado\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf11 jota.
+\f2\i \cf16 let 
+\f3\i0\b \cf11 \{\
+    it
+\f1\b0 .\cf15 alive\
+    
+\f3\b \cf11 it
+\f1\b0 .\cf15 height \cf11 = \cf13 1.8f\
+    
+\f3\b \cf11 it
+\f1\b0 .\cf15 passport \cf11 = \cf14 "A327589"\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f3\b \cf11 \}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf10 var \cf11 Jose = Person(\cf14 "Jose"\cf10 , \cf14 "B647484"\cf11 ).
+\f2\i \cf16 apply 
+\f3\i0\b \cf11 \{\
+    
+\f1\b0 \cf10 this\cf11 .\cf15 height \cf11 = \cf13 1.9f\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f3\b \cf11 \}
+\f1\b0 .
+\f2\i \cf16 also
+\f3\i0\b \cf11 \{
+\f1\b0 \cf12 //adem\'e1s de lo mencionado anteriormente quiero que se haga\
+    
+\f3\b \cf11 it
+\f1\b0 .\cf15 alive\cf11 = \cf10 true\
+
+\f3\b \cf11 \}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf10 var \cf11 maria = Person(\cf14 "Maria"\cf10 , \cf14 "U987643"\cf10 , \cf13 1.7f\cf11 ).
+\f2\i \cf16 run
+\f3\i0\b \cf11 \{\
+    
+\f1\b0 \cf10 this\cf11 .\cf15 height \cf11 = \cf13 1.9f\
+    \cf14 "Mar\'eda es muy alta" \cf12 //la var\'edable maria recoge el valor final que estamos asignando en la \'faltima l\'ednea\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f3\b \cf11 \}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf10 var \cf11 marta = 
+\f2\i with
+\f1\i0 (Person(\cf14 "Marta"\cf10 , \cf14 "O6473039"\cf10 , \cf13 1.7f\cf11 ))
+\f3\b \{\
+    
+\f1\b0 \cf10 this\cf11 .\cf15 height \cf11 = \cf13 1.9f\
+    \cf14 "Marta no es muy alta"\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f3\b \cf11 \}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0\b0 \cf0 \cb2 \
+74. OPERADOR ELVIS ?:\
+Es un operador binario que evaluar\'e1 la expresi\'f3n del lado derecho s\'f3lo si la expresi\'f3n de la izquierda es nula\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf10 \cb2 var \cf11 pais : String? = \cf14 "Rusia"\
+\cf11 pais = pais?.
+\f2\i \cf16 uppercase
+\f1\i0 \cf11 () ?: \cf14 "DESCONOCIDO"\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf11 println
+\f1\i0 (pais) // RUSIA\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 var \cf11 ciudad : String? = \cf10 null\
+\cf11 ciudad = ciudad?.
+\f2\i \cf16 uppercase
+\f1\i0 \cf11 () ?: \cf14 "DESCONOCIDA"\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\i \cf11 println
+\f1\i0 (ciudad) //DESCONOCIDA\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl360\slmult1\pardirnatural\qj\partightenfactor0
+
+\f0 \cf0 \cb2 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
